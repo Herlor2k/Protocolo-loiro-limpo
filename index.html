@@ -158,6 +158,24 @@
   .item.bonus{border:2px dashed var(--ouro);background:var(--ouro-fundo)}
   .formato{margin-top:20px;font-size:15px;color:var(--tinta-2);background:var(--branco);border-radius:12px;padding:16px 18px;border:1px solid var(--linha)}
   .formato b{color:var(--tinta)}
+  /* prévia do PDF */
+  .previa{margin-top:28px;background:var(--tinta);border-radius:var(--raio);padding:24px 0 20px;color:var(--creme)}
+  .previa .topo{padding:0 22px}
+  .previa .rotulo{color:var(--ouro-claro);margin-bottom:6px}
+  .previa h3{font-size:22px;color:var(--creme)}
+  .previa .topo p{font-size:15px;color:#D9CFC1;margin-top:6px}
+  .trilho{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 22px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .trilho::-webkit-scrollbar{display:none}
+  .pag{flex:0 0 68%;scroll-snap-align:start;background:none;border:0;padding:0;cursor:zoom-in;text-align:left;color:inherit;font:inherit}
+  .pag img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;border-radius:8px;box-shadow:0 12px 26px -10px rgba(0,0,0,.7);background:#2B2621}
+  .pag span{display:block;font-size:13.5px;color:#D9CFC1;margin-top:9px}
+  .pag span b{color:var(--ouro-claro);font-weight:700}
+  .previa .dica{font-size:12.5px;color:#9F9384;padding:4px 22px 0}
+  dialog.zoom{border:0;padding:0;background:transparent;max-width:min(94vw,640px);max-height:94vh;margin:auto}
+  dialog.zoom::backdrop{background:rgba(15,12,10,.88)}
+  dialog.zoom img{width:100%;height:auto;max-height:88vh;object-fit:contain;border-radius:8px;display:block}
+  dialog.zoom button{position:fixed;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:0;background:var(--creme);color:var(--tinta);font-size:22px;font-weight:700;cursor:pointer}
+  @media (min-width:760px){.trilho{overflow:visible}.pag{flex:1 1 0}.previa .dica{display:none}}
 
   /* ---------- 6. PREÇO ---------- */
   .preco{background:var(--tinta);color:var(--creme)}
@@ -507,6 +525,21 @@
       </div>
     </div>
 
+    <div class="previa">
+      <div class="topo">
+        <span class="rotulo">Veja por dentro</span>
+        <h3>Páginas reais do PDF 1</h3>
+        <p>É assim que o material abre no seu celular: tabelas, checklists e o passo a passo para consultar na bancada.</p>
+      </div>
+      <div class="trilho">
+        <button class="pag" type="button" data-src="img/previa-checklist.webp" aria-label="Ampliar a página Checklist de 2 minutos"><img src="img/previa-checklist.webp" alt="Página do PDF 1: Checklist de 2 minutos" loading="lazy" width="800" height="1200"><span><b>Checklist de 2 minutos</b> · pág. 3</span></button>
+        <button class="pag" type="button" data-src="img/previa-metodo-3f.webp" aria-label="Ampliar a página O Método 3F"><img src="img/previa-metodo-3f.webp" alt="Página do PDF 1: O Método 3F" loading="lazy" width="800" height="1200"><span><b>O Método 3F</b> · pág. 5</span></button>
+        <button class="pag" type="button" data-src="img/previa-passo-fio.webp" aria-label="Ampliar a página Passo 1: Fio"><img src="img/previa-passo-fio.webp" alt="Página do PDF 1: Passo 1: Fio" loading="lazy" width="800" height="1200"><span><b>Passo 1: Fio</b> · pág. 6</span></button>
+        <button class="pag" type="button" data-src="img/previa-tempo-enxague.webp" aria-label="Ampliar a página Tempo, controle e enxágue"><img src="img/previa-tempo-enxague.webp" alt="Página do PDF 1: Tempo, controle e enxágue" loading="lazy" width="800" height="1200"><span><b>Tempo, controle e enxágue</b> · pág. 10</span></button>
+      </div>
+      <p class="dica">Arraste para o lado e toque numa página para ampliar.</p>
+    </div>
+
     <p class="formato"><b>Formato, sem surpresa:</b> são arquivos PDF. Você baixa e guarda no celular, e eles também ficam disponíveis na área de membros da plataforma de pagamento. Não há aulas em vídeo: o material é feito para consultar rápido, com tabelas, fichas e checklists.</p>
   </div>
 </section>
@@ -639,6 +672,11 @@
 
 </main>
 
+<dialog class="zoom" id="zoom" aria-label="Página ampliada">
+  <button type="button" id="zoom-fechar" aria-label="Fechar">×</button>
+  <img id="zoom-img" alt="">
+</dialog>
+
 <!-- =============================================================
      11. RODAPÉ — sem links externos; termos e privacidade abrem aqui mesmo
      ============================================================= -->
@@ -678,6 +716,14 @@
   }
   campos.forEach(c => c.addEventListener("input", calcula));
   calcula();
+  /* prévia do PDF: ampliar página */
+  const zoom = document.getElementById("zoom"), zimg = document.getElementById("zoom-img");
+  document.querySelectorAll(".pag").forEach(b => b.addEventListener("click", () => {
+    zimg.src = b.dataset.src; zimg.alt = b.querySelector("img").alt;
+    if (zoom.showModal) zoom.showModal();
+  }));
+  document.getElementById("zoom-fechar").addEventListener("click", () => zoom.close());
+  zoom.addEventListener("click", e => { if (e.target === zoom) zoom.close(); });
 </script>
 </body>
 </html>
