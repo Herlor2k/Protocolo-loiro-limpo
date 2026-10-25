@@ -268,6 +268,26 @@
   /* final com gancho PLUS */
   .final-plus .final-titulo{font-size:30px}
   .link-basico{color:var(--tinta-2);font-weight:700}
+  /* hero mobile: headline centralizada → mockup → texto */
+  .hero-grid{gap:18px}
+  .hero-topo{text-align:center}
+  .hero-topo .rotulo{max-width:320px}
+  .hero .prova-topo{justify-content:center;text-align:left}
+  .hero-corpo .sub{text-align:center;font-size:17px}
+  .hero-corpo .checks{max-width:340px;margin-left:auto;margin-right:auto}
+  .hero-corpo .ficha-tec{text-align:center}
+  .mockup-livro{max-width:330px}
+  @media (min-width:760px){
+    .hero-grid{grid-template-columns:1.1fr .9fr;grid-template-areas:"topo mock" "corpo mock";column-gap:40px;row-gap:12px}
+    .hero-topo{grid-area:topo;text-align:left}
+    .hero-topo .rotulo{max-width:none}
+    .hero .prova-topo{justify-content:flex-start}
+    .hero-corpo{grid-area:corpo}
+    .hero-corpo .sub{text-align:left;font-size:18px}
+    .hero-corpo .checks{margin-left:0}
+    .hero-corpo .ficha-tec{text-align:left}
+    .mockup-livro{grid-area:mock;max-width:420px;align-self:center}
+  }
   /* prévia do PDF */
   .previa{margin-top:28px;background:var(--tinta);border-radius:var(--raio);padding:24px 0 20px;color:var(--creme)}
   .previa .topo{padding:0 22px}
@@ -397,16 +417,23 @@
     </div>
 
     <div class="hero-grid">
-      <div>
+      <div class="hero-topo">
         <span class="rotulo">Para cabeleireiras que já trabalham com mechas e descoloração</span>
         <h1>O loiro ficou <mark>manchado, amarelado</mark> ou diferente do esperado? <span class="h1-sub">Aprenda a identificar o que pode estar por trás do resultado antes de tentar corrigir.</span></h1>
-        <p class="sub">Com o <b>Protocolo Loiro Limpo</b>, você aprende a organizar seu diagnóstico, entender o fundo de clareamento e tomar decisões mais conscientes durante os atendimentos. Comece pela versão essencial ou leve o guia completo, o <b>Protocolo PLUS</b>.</p>
+      </div>
+
+      <div class="mockup-livro">
+        <img src="img/ebook-mockup.webp" alt="Guia Protocolo Loiro Limpo" width="800" height="816" fetchpriority="high">
+      </div>
+
+      <div class="hero-corpo">
+        <p class="sub">Organize seu diagnóstico e entenda o fundo de clareamento antes de corrigir. Comece pelo <b>essencial</b> ou leve o guia completo, o <b>Protocolo PLUS</b>.</p>
 
         <ul class="checks">
           <li>Diagnóstico antes de descolorir</li>
           <li>Fundo de clareamento e neutralização</li>
           <li>Checklist para consultar na bancada</li>
-          <li>Estratégias para 5 perfis de cabelo <em class="tag-plus">PLUS</em></li>
+          <li>5 perfis de cabelo <em class="tag-plus">PLUS</em></li>
         </ul>
         <p class="ficha-tec">2 versões <i>|</i> a partir de R$ 10 <i>|</i> PDF digital</p>
 
@@ -414,10 +441,6 @@
           <a class="btn js-cta" href="#preco">Quero acessar o Protocolo<small>Escolha a sua versão · a partir de R$ 10</small></a>
           <p class="cta-nota">Acesso imediato · Pagamento único · <b>Garantia de 7 dias</b></p>
         </div>
-      </div>
-
-      <div class="mockup-livro">
-        <img src="img/ebook-mockup.webp" alt="Guia Protocolo Loiro Limpo" width="800" height="816" fetchpriority="high">
       </div>
     </div>
   </div>
