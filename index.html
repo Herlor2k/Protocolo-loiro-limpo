@@ -187,6 +187,12 @@
   .valor .cent{font-size:.45em;vertical-align:top;position:relative;top:8px}
   .final-titulo{font-family:"Fraunces",serif;font-size:24px;font-weight:700;margin-top:22px}
   .final-preco{margin-top:14px;font-size:17px}
+  /* seções em imagem */
+  .secao-arte{padding:28px 0}
+  .secao-arte.alt{background:var(--creme-2)}
+  .arte{display:block;width:100%;max-width:760px;margin:0 auto;padding:0;border:0;background:none;cursor:zoom-in}
+  .arte img{width:100%;height:auto;border-radius:16px;box-shadow:0 14px 34px -18px rgba(30,26,22,.35)}
+  @media (min-width:760px){.secao-arte{padding:56px 0}}
   /* prévia do PDF */
   .previa{margin-top:28px;background:var(--tinta);border-radius:var(--raio);padding:24px 0 20px;color:var(--creme)}
   .previa .topo{padding:0 22px}
@@ -370,45 +376,11 @@
 <!-- =============================================================
      3. IDENTIFICAÇÃO COM O PROBLEMA
      ============================================================= -->
-<section>
+<section class="secao-arte">
   <div class="wrap">
-    <span class="rotulo">Você se reconhece?</span>
-    <h2>Você já passou por alguma dessas situações no salão?</h2>
-    <div class="texto">
-      <p>A cliente chega com uma referência de loiro perfeito.</p>
-      <p>Você avalia o cabelo, começa o atendimento e, durante o processo, percebe que o resultado está diferente do esperado.</p>
-      <ul class="sinais">
-        <li>O fundo de clareamento não está uniforme.</li>
-        <li>Algumas regiões apresentam tonalidades diferentes.</li>
-        <li>E agora você precisa decidir como continuar sem comprometer ainda mais o cabelo.</li>
-      </ul>
-    </div>
-    <div class="aha">
-      <span class="rotulo">O ponto que quase ninguém vê</span>
-      <p><b>O problema é que nem toda irregularidade se resolve com tonalizante.</b> Muitas vezes, o que faltou foi uma avaliação mais completa do ponto de partida e um planejamento adequado.</p>
-    </div>
-    <div class="texto">
-      <p>Foi pensando nesses desafios que surgiu o <b>Protocolo Loiro Limpo</b>: um guia para ajudar você a organizar as informações técnicas e consultar os pontos importantes antes, durante e depois de cada atendimento.</p>
-    </div>
-
-    <div class="pra-quem">
-      <div class="pq sim">
-        <h3>É pra você se…</h3>
-        <ul>
-          <li>Você já faz mechas ou loiro e quer depender menos da tentativa e erro</li>
-          <li>Cabelo branco, escuro ou já manchado te deixa insegura</li>
-          <li>Você quer um material para consultar antes e durante o atendimento</li>
-        </ul>
-      </div>
-      <div class="pq nao">
-        <h3>Não é pra você se…</h3>
-        <ul>
-          <li>Você nunca fez nenhuma coloração ou descoloração em cliente</li>
-          <li>Você busca um curso em vídeo (aqui é um guia em PDF)</li>
-          <li>Você quer pintar o próprio cabelo em casa</li>
-        </ul>
-      </div>
-    </div>
+    <button class="arte zoomavel" type="button" data-src="img/secao-voce-se-reconhece.webp" aria-label="Ampliar: Você se reconhece?">
+      <img src="img/secao-voce-se-reconhece.webp" alt="Você se reconhece? Você já passou por alguma dessas situações no salão? A cliente chega com uma referência de loiro perfeito. Você avalia o cabelo, começa o atendimento e, durante o processo, percebe que o resultado está diferente do esperado. O fundo de clareamento não está uniforme. Algumas regiões apresentam tonalidades diferentes. E agora você precisa decidir como continuar sem comprometer ainda mais o cabelo. O ponto que quase ninguém vê: nem toda irregularidade se resolve com tonalizante. Muitas vezes, o que faltou foi uma avaliação mais completa do ponto de partida e um planejamento adequado. É pra você se já faz mechas ou loiro, se cabelo branco, escuro ou manchado te deixa insegura, ou se quer um material para consultar antes e durante o atendimento. Não é pra você se nunca fez coloração ou descoloração em cliente, se busca um curso em vídeo ou se quer pintar o próprio cabelo em casa." width="1024" height="1536" loading="lazy">
+    </button>
   </div>
 </section>
 
@@ -452,44 +424,11 @@
 <!-- =============================================================
      5. DIFERENCIAÇÃO (5 perfis)
      ============================================================= -->
-<section>
+<section class="secao-arte alt">
   <div class="wrap">
-    <span class="rotulo">Cada cabelo tem uma história</span>
-    <h2>Nem todo cabelo começa do mesmo ponto. Por que usar o mesmo planejamento?</h2>
-    <p class="lead">Um cabelo natural escuro apresenta desafios diferentes de um cabelo branco ou de um comprimento com colorações anteriores. Por isso, o Protocolo Loiro Limpo apresenta orientações específicas para cinco perfis.</p>
-
-    <div class="bento">
-      <div class="b">
-        <div class="ico">🤍</div>
-        <h3>Cabelos brancos</h3>
-        <p>Entenda os principais pontos de atenção na avaliação e no planejamento.</p>
-      </div>
-      <div class="b">
-        <div class="ico">🟤</div>
-        <h3>Cabelos escuros</h3>
-        <p>Aprenda a interpretar o ponto de partida e as possibilidades de resultado.</p>
-      </div>
-      <div class="b">
-        <div class="ico">🎨</div>
-        <h3>Cabelos manchados</h3>
-        <p>Conheça os fatores que devem ser avaliados antes de planejar uma correção.</p>
-      </div>
-      <div class="b">
-        <div class="ico">🛡️</div>
-        <h3>Cabelos danificados</h3>
-        <p>Saiba quais sinais indicam a necessidade de mais cautela e de uma avaliação profissional criteriosa.</p>
-      </div>
-      <div class="b">
-        <div class="ico">🔀</div>
-        <h3>Cabelos mistos</h3>
-        <p>Entenda por que diferentes regiões do cabelo podem exigir estratégias distintas.</p>
-      </div>
-      <div class="b escuro">
-        <div class="ico">✨</div>
-        <h3>Cada cabelo tem uma história.</h3>
-        <p>Seu planejamento precisa considerar isso.</p>
-      </div>
-    </div>
+    <button class="arte zoomavel" type="button" data-src="img/secao-cada-cabelo.webp" aria-label="Ampliar: Cada cabelo tem uma história">
+      <img src="img/secao-cada-cabelo.webp" alt="Cada cabelo tem uma história. Nem todo cabelo começa do mesmo ponto. Por que usar o mesmo planejamento? O Protocolo Loiro Limpo apresenta orientações específicas para cinco perfis: cabelos brancos, escuros, manchados, danificados e mistos." width="1024" height="1536" loading="lazy">
+    </button>
   </div>
 </section>
 
@@ -725,7 +664,7 @@
   calcula();
   /* prévia do PDF: ampliar página */
   const zoom = document.getElementById("zoom"), zimg = document.getElementById("zoom-img");
-  document.querySelectorAll(".pag").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll(".pag, .zoomavel").forEach(b => b.addEventListener("click", () => {
     zimg.src = b.dataset.src; zimg.alt = b.querySelector("img").alt;
     if (zoom.showModal) zoom.showModal();
   }));
