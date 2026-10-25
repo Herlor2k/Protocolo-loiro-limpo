@@ -206,14 +206,12 @@
   .ess-box .checks li{font-size:15px}
   /* rolo de páginas (loop da direita para a esquerda) */
   .rolo-titulo{margin-top:30px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ouro)}
-  .marquee{overflow:hidden;margin:12px -18px 0;padding:10px 0 18px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-  .rolo{display:flex;gap:14px;width:max-content;animation:rolo 32s linear infinite}
-  .marquee:hover .rolo{animation-play-state:paused}
-  @keyframes rolo{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 7px))}}
+  .marquee{overflow:hidden;touch-action:pan-y;margin:12px -18px 0;padding:10px 0 18px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .rolo{display:flex;gap:14px;width:max-content;animation:rolo 32s linear infinite;will-change:transform}
+  @keyframes rolo{from{transform:translate3d(0,0,0)}to{transform:translate3d(calc(-50% - 7px),0,0)}}
   .rolo-pag{flex:0 0 auto;width:200px;padding:0;border:0;background:none;cursor:zoom-in}
   .rolo-pag img{width:100%;height:auto;border-radius:8px;box-shadow:0 12px 24px -12px rgba(30,26,22,.55);display:block}
   .rolo-dica{font-size:12.5px;color:var(--tinta-3)}
-  @media (prefers-reduced-motion:reduce){.rolo{animation:none}.marquee{overflow-x:auto}}
   @media (min-width:760px){.rolo-pag{width:250px}.marquee{margin:12px 0 0}}
   /* planos lado a lado */
   .planos{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:28px auto 0;max-width:820px;text-align:left;align-items:stretch}
